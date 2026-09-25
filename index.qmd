@@ -22,7 +22,7 @@ title-slide-attributes:
   data-background-color: "#0a0a0a"
 ---
 
-## {#slide-1 background-color="#0a0a0a"}
+## {#slide-1 background-color="#0a0a0a" data-menu-title="Last miles in geo"}
 
 [Last miles in geo]{.headline .slide-top}
 
@@ -37,7 +37,7 @@ title-slide-attributes:
 <div class="photo-card photo-late a-pop" style="left:150px; top:360px; width:560px; --rot:-4deg; --d:11.5s"><img src="images/01b-rac2.jpg" alt="Exhausted raccoon draped over a branch"></div>
 
 
-## {#slide-2 background-color="#0a0a0a"}
+## {#slide-2 background-color="#0a0a0a" data-menu-title="Outcomes"}
 
 ::: {.center-v}
 [At WRI, our last mile is [outcomes]{.green}]{.headline}
@@ -46,7 +46,7 @@ title-slide-attributes:
 :::
 
 
-## {#slide-3 background-color="#0a0a0a"}
+## {#slide-3 background-color="#0a0a0a" data-menu-title="What outcomes require"}
 
 ::: {.center-v}
 ::: {.criteria}
@@ -61,7 +61,7 @@ title-slide-attributes:
 :::
 
 
-## {#slide-4 background-color="#0a0a0a"}
+## {#slide-4 background-color="#0a0a0a" data-menu-title="Two examples"}
 
 ::: {.center-v}
 [Example]{.kicker}
@@ -72,7 +72,7 @@ title-slide-attributes:
 :::
 
 
-## {#slide-5 background-image="images/Peru.jpg" background-size="cover" background-position="center"}
+## {#slide-5 background-image="images/Peru.jpg" background-size="cover" background-position="center" data-menu-title="Loreto, Peru"}
 
 ::: {.shade-bottom}
 :::
@@ -84,7 +84,7 @@ title-slide-attributes:
 :::
 
 
-## {#slide-6 background-image="images/Ethiopia.png" background-size="cover" background-position="center"}
+## {#slide-6 background-image="images/Ethiopia.png" background-size="cover" background-position="center" data-menu-title="Ethiopia"}
 
 ::: {.shade-bottom}
 :::
@@ -96,7 +96,7 @@ title-slide-attributes:
 :::
 
 
-## {#slide-7 background-color="#0a0a0a"}
+## {#slide-7 background-color="#0a0a0a" data-menu-title="Contribution details"}
 
 ::: {.center-v}
 ::: {.text-block}
@@ -112,7 +112,7 @@ title-slide-attributes:
 :::
 
 
-## {#slide-8 background-color="#0a0a0a"}
+## {#slide-8 background-color="#0a0a0a" data-menu-title="A vast universe of contributors"}
 
 ::: {.center-v}
 [A vast universe of contributors!]{.statement}
@@ -121,7 +121,7 @@ title-slide-attributes:
 :::
 
 
-## {#slide-9 background-color="#0a0a0a"}
+## {#slide-9 background-color="#0a0a0a" data-menu-title="Start at the Sun"}
 
 ```{=html}
 <div class="sun-scene">
@@ -136,7 +136,7 @@ title-slide-attributes:
 ```
 
 
-## {#slide-10 background-color="#0a0a0a"}
+## {#slide-10 background-color="#0a0a0a" data-menu-title="Sun to Earth"}
 
 ```{=html}
 <svg class="photon-trip" viewBox="0 0 1600 900" aria-label="A photon travels from the Sun to Earth in 8 minutes 20 seconds">
@@ -180,7 +180,7 @@ title-slide-attributes:
 ```
 
 
-## {#slide-11 background-color="#0a0a0a"}
+## {#slide-11 background-color="#0a0a0a" data-menu-title="Feed the robot"}
 
 ```{=html}
 <svg class="robot-scene" viewBox="0 0 1400 640" aria-label="A person feeds documents to a robot, the robot asks a question, the person answers">
@@ -255,7 +255,7 @@ title-slide-attributes:
 ```
 
 
-## {#slide-12 background-color="#0a0a0a"}
+## {#slide-12 background-color="#0a0a0a" data-menu-title="One sequence per outcome"}
 
 ::: {.center-v}
 [One sequence per outcome, and how they sync up]{.headline .headline-sm}
@@ -266,7 +266,7 @@ title-slide-attributes:
 :::
 
 
-## {#slide-13 background-color="#0a0a0a"}
+## {#slide-13 background-color="#0a0a0a" data-menu-title="Dig deeper"}
 
 [Dig deeper: find the dependencies, lean into the taxonomy]{.headline .headline-sm .slide-top}
 
@@ -310,7 +310,7 @@ title-slide-attributes:
 ```
 
 
-## {#slide-14 background-color="#0a0a0a"}
+## {#slide-14 background-color="#0a0a0a" data-menu-title="A web of dependencies"}
 
 ::: {.center-v}
 [A web of dependencies]{.headline .headline-sm}
@@ -321,7 +321,7 @@ title-slide-attributes:
 :::
 
 
-## {#slide-15 background-color="#0a0a0a"}
+## {#slide-15 background-color="#0a0a0a" data-menu-title="It's all connected"}
 
 ::: {.center-v}
 ![](images/all-connected.jpg){.img-hero height=680 fig-alt="Man frantically pointing at a wall of papers connected by red string"}
@@ -330,7 +330,7 @@ title-slide-attributes:
 :::
 
 
-## {#slide-16 background-color="#0a0a0a"}
+## {#slide-16 background-color="#0a0a0a" data-menu-title="From orbit to catalog"}
 
 ::: {.center-v}
 ![](images/Landsat9_Auto1.jpg){.img-hero .img-framed height=690 fig-alt="Landsat 9 mission operational concept: space segment, launch segment, ground network, and data processing"}
@@ -339,7 +339,7 @@ title-slide-attributes:
 :::
 
 
-## {#slide-17 background-image="images/deep-field.jpg" background-size="cover" background-position="center"}
+## {#slide-17 background-image="images/deep-field.jpg" background-size="cover" background-position="center" data-menu-title="In each of these steps"}
 
 ::: {.deep-shade}
 :::
@@ -357,7 +357,7 @@ title-slide-attributes:
 :::
 
 
-## {#slide-18 background-color="#0a0a0a"}
+## {#slide-18 background-color="#0a0a0a" data-menu-title="Research to published data"}
 
 ```{=html}
 <svg class="pipeline" viewBox="0 0 1500 420" aria-label="Research, then develop a model or algorithm, then compute, then publish data">
@@ -465,7 +465,7 @@ title-slide-attributes:
 ```
 
 
-## {#slide-19 background-color="#0a0a0a"}
+## {#slide-19 background-color="#0a0a0a" data-menu-title="Downstream is load-bearing too"}
 
 ::: {.center-v}
 [Downstream is so load-bearing too]{.headline .headline-sm}
@@ -476,7 +476,7 @@ title-slide-attributes:
 :::
 
 
-## {#slide-20 background-color="#0a0a0a"}
+## {#slide-20 background-color="#0a0a0a" data-menu-title="Thanks for contributing"}
 
 ```{=html}
 <canvas class="grow-network"></canvas>
@@ -487,36 +487,10 @@ title-slide-attributes:
 ```
 
 
-## {#slide-applause background-color="#0a0a0a"}
+## {#slide-applause background-color="#0a0a0a" data-menu-title="Applause"}
 
 ::: {.center-v}
 ![](images/applause.svg){fig-alt="Two stick figures with arms raised"}
 
 <div class="clap-anim">👏</div>
 :::
-
-```{=html}
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  // Give the title slide a clean URL hash (#/slide-title instead of #/title-slide)
-  var ts = document.getElementById('title-slide');
-  if (ts) ts.id = 'slide-title';
-
-  // Countdown bar: sits above the RevealJS progress bar, runs right-to-left per slide
-  var cdBar = document.createElement('div');
-  cdBar.id = 'slide-countdown';
-  cdBar.innerHTML = '<div id="slide-countdown-fill"></div>';
-  document.querySelector('.reveal').appendChild(cdBar);
-
-  function resetCountdown() {
-    var fill = document.getElementById('slide-countdown-fill');
-    fill.style.animation = 'none';
-    fill.offsetHeight; // force reflow
-    fill.style.animation = '';
-  }
-
-  Reveal.on('slidechanged', resetCountdown);
-  Reveal.on('ready', resetCountdown);
-});
-</script>
-```

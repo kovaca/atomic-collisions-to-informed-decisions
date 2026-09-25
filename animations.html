@@ -390,3 +390,27 @@
   else boot();
 })();
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Give the title slide a clean URL hash (#/slide-title instead of #/title-slide)
+  var ts = document.getElementById('title-slide');
+  if (ts) ts.id = 'slide-title';
+
+  // Countdown bar: sits above the RevealJS progress bar, runs right-to-left per slide
+  var cdBar = document.createElement('div');
+  cdBar.id = 'slide-countdown';
+  cdBar.innerHTML = '<div id="slide-countdown-fill"></div>';
+  document.querySelector('.reveal').appendChild(cdBar);
+
+  function resetCountdown() {
+    var fill = document.getElementById('slide-countdown-fill');
+    fill.style.animation = 'none';
+    fill.offsetHeight; // force reflow
+    fill.style.animation = '';
+  }
+
+  Reveal.on('slidechanged', resetCountdown);
+  Reveal.on('ready', resetCountdown);
+});
+</script>
