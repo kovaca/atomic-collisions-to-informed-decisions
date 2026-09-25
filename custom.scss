@@ -156,3 +156,742 @@ $presentation-h2-font-size: 1.8em;
   display: inline-block;
   animation: clap 0.5s ease-in-out infinite alternate;
 }
+
+/* ==========================================================================
+   Deck content: last mile → outcomes → atomic collisions
+   Timed effects use animation-delay (--d) scoped to section.present, so they
+   replay on every visit and never add fragments (each fragment would take a
+   full 15 s auto-slide step).
+   ========================================================================== */
+
+$green: #09e57b;
+$amber: #ffb638;
+$ink: #fafafa;
+
+/* ---------- Type ---------- */
+.reveal .headline {
+  display: block;
+  margin: 0;
+  color: $ink;
+  font-size: 1.5em;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.reveal .headline-sm {
+  font-size: 1.15em;
+}
+
+.reveal .slide-top {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.reveal .kicker {
+  display: block;
+  margin: 0;
+  color: $green;
+  font-size: 0.55em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.reveal .dim {
+  color: rgba(250, 250, 250, 0.45);
+}
+
+.reveal .statement {
+  display: block;
+  margin: 0;
+  color: $ink;
+  font-size: 1.9em;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.reveal .statement.green {
+  color: $green;
+}
+
+.reveal .statement-sub {
+  display: block;
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ---------- Timed-reveal utilities ---------- */
+.reveal .slides section :is(.a-fade, .a-rise, .a-pop) {
+  opacity: 0;
+}
+
+.reveal .slides section.present .a-fade {
+  animation: fade-in 0.8s ease-out var(--d, 0s) both;
+}
+
+.reveal .slides section.present .a-rise {
+  animation: rise-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0s) both;
+}
+
+.reveal .slides section.present .a-pop {
+  animation: pop-in 0.7s cubic-bezier(0.3, 1.4, 0.5, 1) var(--d, 0s) both;
+}
+
+.reveal svg .a-pop {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes pop-in {
+  from { opacity: 0; transform: rotate(var(--rot, 0deg)) scale(0.6); }
+  to   { opacity: 1; transform: rotate(var(--rot, 0deg)) scale(1); }
+}
+
+@keyframes draw-1 {
+  from { stroke-dashoffset: 1; opacity: 0; }
+  1%   { opacity: 1; }
+  to   { stroke-dashoffset: 0; opacity: 1; }
+}
+
+@keyframes kenburns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.14); }
+}
+
+/* ---------- Images ---------- */
+.reveal .img-hero {
+  display: block;
+  margin: 0 auto;
+  max-width: none;
+  max-height: none;
+  border-radius: 10px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+.reveal .img-framed {
+  padding: 8px;
+  background: #fff;
+}
+
+.reveal .crop-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #f6f6f4;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+.reveal .crop-card p {
+  margin: 0;
+}
+
+.reveal .crop-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  max-width: none;
+  max-height: none;
+}
+
+.reveal .kenburns img {
+  transform-origin: 55% 45%;
+}
+
+.reveal .slides section.present .kenburns img {
+  animation: kenburns 15s ease-out both;
+}
+
+/* Slide 1: collage */
+.reveal .photo-card {
+  position: absolute;
+  padding: 10px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+  transform: rotate(var(--rot, 0deg));
+}
+
+.reveal .photo-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  max-width: none;
+  max-height: none;
+}
+
+.reveal .photo-late {
+  z-index: 2;
+}
+
+.reveal .slides section.present .collage-01 {
+  animation: collage-dim 0.8s ease 8.8s both;
+}
+
+@keyframes collage-dim {
+  to { opacity: 0.3; filter: grayscale(0.7); }
+}
+
+/* Slide 3: outcome criteria */
+.reveal .criteria {
+  width: 1300px;
+  text-align: left;
+}
+
+.reveal .criteria p {
+  margin: 0.3em 0;
+}
+
+.reveal .criterion {
+  display: block;
+  padding: 0.35em 0 0.35em 0.8em;
+  border-left: 6px solid $green;
+}
+
+.reveal .criterion .term {
+  display: block;
+  color: $green;
+  font-size: 1.5em;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.reveal .criterion .question {
+  display: block;
+  color: rgba(250, 250, 250, 0.85);
+  font-size: 1.05em;
+}
+
+/* Slides 5–6: full-bleed photo captions */
+/* Extends past the 16:9 slide box so the shade also covers letterboxed edges;
+   the stops are offset by the 1000px overhang below the slide. */
+.reveal .shade-bottom {
+  position: absolute;
+  top: 0;
+  bottom: -1000px;
+  left: -2000px;
+  right: -2000px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 1000px, rgba(0, 0, 0, 0.4) 1270px, rgba(0, 0, 0, 0) 1495px);
+  pointer-events: none;
+}
+
+.reveal .photo-caption {
+  position: absolute;
+  left: 80px;
+  bottom: 70px;
+  max-width: 1100px;
+  text-align: left;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.reveal .photo-caption p {
+  margin: 0.2em 0;
+}
+
+.reveal .caption-title {
+  display: block;
+  color: $ink;
+  font-size: 1.6em;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.reveal .caption-sub {
+  display: block;
+  color: rgba(250, 250, 250, 0.9);
+  font-size: 0.8em;
+}
+
+/* Slide 7: contribution list */
+.reveal .text-block {
+  width: 1440px;
+  text-align: left;
+}
+
+.reveal .text-block .lead {
+  display: block;
+  margin: 0.2em 0 0.3em;
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+.reveal .text-block ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reveal .text-block li {
+  position: relative;
+  margin: 0.45em 0;
+  padding-left: 1.3em;
+  font-size: 1.1em;
+  line-height: 1.3;
+}
+
+.reveal .text-block li::before {
+  content: "";
+  position: absolute;
+  left: 0.2em;
+  top: 0.45em;
+  width: 0.45em;
+  height: 0.45em;
+  border-radius: 50%;
+  background: $green;
+}
+
+/* Slide 9: photon random walk */
+.reveal .sun-scene {
+  position: absolute;
+  inset: 0;
+}
+
+.reveal canvas.sun-walk {
+  position: absolute;
+  left: 40px;
+  top: 20px;
+  width: 860px;
+  height: 860px;
+}
+
+.reveal .sun-copy {
+  position: absolute;
+  left: 960px;
+  top: 0;
+  bottom: 0;
+  width: 580px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.reveal .sun-copy p {
+  margin: 0.2em 0;
+}
+
+.reveal .years {
+  color: $amber;
+  font-size: 2.1em;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.reveal .years-range {
+  color: rgba(255, 182, 56, 0.75);
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.reveal .sun-note {
+  color: rgba(250, 250, 250, 0.75);
+  font-size: 0.85em;
+  line-height: 1.35;
+}
+
+/* Slide 10: Sun to Earth */
+.reveal svg.photon-trip {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.reveal .photon-trail {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+
+.reveal .photon-head {
+  stroke-dasharray: 24 2000;
+  stroke-dashoffset: 24;
+  opacity: 0;
+}
+
+.reveal .earth-glow {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.reveal .slides section.present .photon-trail {
+  animation: photon-trail 3s linear 1s both;
+}
+
+.reveal .slides section.present .photon-head {
+  animation: photon-head 3s linear 1s both;
+}
+
+.reveal .slides section.present .earth-glow {
+  animation: earth-flash 1.6s ease-out 3.9s both;
+}
+
+@keyframes photon-trail {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes photon-head {
+  0%   { stroke-dashoffset: 24; opacity: 1; }
+  97%  { opacity: 1; }
+  100% { stroke-dashoffset: -976; opacity: 0; }
+}
+
+@keyframes earth-flash {
+  0%   { opacity: 0; transform: scale(0.6); }
+  30%  { opacity: 0.9; transform: scale(1); }
+  100% { opacity: 0.35; transform: scale(1); }
+}
+
+.reveal .trip-time {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 330px;
+  margin: 0;
+  color: $amber;
+  font-size: 1.1em;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
+.reveal .trip-punch {
+  position: absolute;
+  left: 300px;
+  right: 0;
+  top: 640px;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+/* Slide 11: robot */
+.reveal svg.robot-scene {
+  position: absolute;
+  left: 100px;
+  top: 50px;
+  width: 1400px;
+  height: 640px;
+}
+
+.reveal .robot-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100px;
+  margin: 0;
+  color: $ink;
+  font-size: 1.1em;
+  font-weight: 700;
+  text-align: center;
+}
+
+.reveal .doc {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.reveal .slides section.present .doc {
+  animation: doc-feed 1.5s cubic-bezier(0.5, 0, 0.7, 1) var(--d) both;
+}
+
+@keyframes doc-feed {
+  0%   { opacity: 0; transform: translate(0, 0) rotate(-8deg) scale(1); }
+  12%  { opacity: 1; }
+  80%  { opacity: 1; transform: translate(680px, -20px) rotate(8deg) scale(0.55); }
+  100% { opacity: 0; transform: translate(765px, -32px) rotate(0deg) scale(0.1); }
+}
+
+.reveal .slides section.present .jaw {
+  animation: chomp 0.3s ease-in-out 0.9s 18 alternate both;
+}
+
+@keyframes chomp {
+  from { transform: translateY(0); }
+  to   { transform: translateY(24px); }
+}
+
+.reveal .slides section.present .antenna {
+  animation: blink 0.6s ease-in-out 0s infinite alternate;
+}
+
+@keyframes blink {
+  to { opacity: 0.3; }
+}
+
+.reveal .q-mark,
+.reveal .bang {
+  fill: $green;
+  font-family: 'Sulphur Point', sans-serif;
+  font-size: 96px;
+  font-weight: 700;
+}
+
+.reveal .bang {
+  opacity: 0;
+}
+
+.reveal .slides section.present .q-mark {
+  animation: fade-out 0.4s ease 10.5s both;
+}
+
+.reveal .slides section.present .bang {
+  animation: fade-in 0.4s ease 10.6s both;
+}
+
+.reveal .answer-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 0;
+}
+
+.reveal .slides section.present .answer-line {
+  animation: draw-1 0.5s ease-out var(--d) both;
+}
+
+/* Slide 12: strand chart crop */
+.reveal .chain-crop {
+  width: 1480px;
+  aspect-ratio: 2388 / 600;
+}
+
+/* Slide 13: dependencies + taxonomy */
+.reveal .dep-layout {
+  position: absolute;
+  left: 80px;
+  right: 80px;
+  top: 170px;
+  bottom: 90px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.reveal svg.dep-graph {
+  width: 100%;
+  height: auto;
+}
+
+.reveal .dep-labels text {
+  fill: $ink;
+  font-family: 'Sulphur Point', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.reveal .dep-edge {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.reveal .slides section.present .dep-edge {
+  animation: draw-1 0.5s ease-out var(--d) both;
+}
+
+.reveal ul.families {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.reveal ul.families li {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0.35em 0;
+  font-size: 0.72em;
+  line-height: 1.2;
+}
+
+.reveal ul.families li::before {
+  content: "";
+  flex: none;
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 4px;
+  background: var(--c);
+}
+
+.reveal ul.families b {
+  min-width: 1.6em;
+  color: var(--c);
+}
+
+/* Slides 14 & 19: dependency matrix */
+.reveal .web-card {
+  width: 1340px;
+  aspect-ratio: 4052 / 2090;
+}
+
+/* Slide 19: dim everything above the Organizations / Resources / Relationships rows */
+.reveal .spotlight-rows::after,
+.reveal .spotlight-rows::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+}
+
+.reveal .spotlight-rows::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 70.3%;
+  background: rgba(10, 10, 10, 0.72);
+}
+
+.reveal .spotlight-rows::before {
+  left: 0.4%;
+  right: 0.4%;
+  top: 70.3%;
+  bottom: 1.2%;
+  border: 4px solid $green;
+  border-radius: 8px;
+}
+
+.reveal .slides section.present .spotlight-rows::after,
+.reveal .slides section.present .spotlight-rows::before {
+  animation: fade-in 0.8s ease 1s both;
+}
+
+/* Slide 17: deep field (a Reveal background, so it fills the whole viewport) */
+.reveal .backgrounds .slide-background.present[data-background-hash*="deep-field"] .slide-background-content {
+  animation: kenburns 15s ease-out both;
+}
+
+.reveal .deep-shade {
+  position: absolute;
+  inset: -600px -1200px;
+  background: radial-gradient(ellipse 900px 520px at center, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  pointer-events: none;
+}
+
+.reveal .deep-copy {
+  gap: 0.2rem;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.9), 0 0 4px rgba(0, 0, 0, 0.9);
+}
+
+.reveal .deep-copy p {
+  margin: 0;
+}
+
+/* Slide 18: research → compute pipeline */
+.reveal svg.pipeline {
+  position: absolute;
+  left: 50px;
+  top: 220px;
+  width: 1500px;
+  height: 420px;
+}
+
+.reveal .pipe-labels text {
+  fill: $ink;
+  font-family: 'Sulphur Point', sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.reveal svg.pipeline .stage,
+.reveal .db-ring {
+  opacity: 0.2;
+}
+
+.reveal .slides section.present svg.pipeline .stage,
+.reveal .slides section.present .db-ring {
+  animation: light-up 0.6s ease-out var(--d) both;
+}
+
+@keyframes light-up {
+  from { opacity: 0.2; }
+  to   { opacity: 1; }
+}
+
+.reveal .tile {
+  fill: rgba(9, 229, 123, 0);
+}
+
+.reveal .slides section.present .tile {
+  animation: tile-on 0.25s ease-out var(--d) both;
+}
+
+@keyframes tile-on {
+  to { fill: rgba(9, 229, 123, 0.85); }
+}
+
+.reveal .pulse {
+  opacity: 0;
+}
+
+.reveal .slides section.present .pulse {
+  animation: pulse-move 1.1s linear var(--d) infinite;
+}
+
+@keyframes pulse-move {
+  0%   { opacity: 0; transform: translateX(0); }
+  15%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { opacity: 0; transform: translateX(120px); }
+}
+
+/* Slide 20: growing network */
+.reveal canvas.grow-network {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1600px;
+  height: 900px;
+}
+
+.reveal .closing-copy {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 80px;
+  text-align: center;
+  text-shadow: 0 0 24px #0a0a0a, 0 0 8px #0a0a0a;
+}
+
+.reveal .closing-copy::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  bottom: -80px;
+  height: 360px;
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 35%, rgba(10, 10, 10, 0));
+}
+
+.reveal .closing-copy p {
+  margin: 0.15em 0;
+}
